@@ -1,9 +1,12 @@
-// SPDX-License-Identifier: MIT AND Palimpsest-0.8
+image:https://img.shields.io/badge/license-PMPL--1.0-blue.svg[License,link="https://github.com/hyperpolymath/palimpsest-license"]
+// SPDX-License-Identifier: PMPL-1.0 AND Palimpsest-0.8
 // SPDX-FileCopyrightText: 2024-2025 hyperpolymath
 
 = CCCP: Campaign for Cooler Coding and Programming
 
-image:https://img.shields.io/badge/license-AGPL--3.0-blue.svg[AGPL-3.0,link="https://www.gnu.org/licenses/agpl-3.0"] image:https://img.shields.io/badge/philosophy-Palimpsest-purple.svg[Palimpsest,link="https://github.com/hyperpolymath/palimpsest-licence"]
+
+
+
 :author: hyperpolymath
 :revnumber: 1.0.0
 :revdate: 2025-12-26
@@ -180,8 +183,8 @@ NOTE: Python is permitted *only* for SaltStack configuration management (tempora
 
 No exceptions for Kotlin/Swift. Use Rust-first approach:
 
-1. *Tauri 2.0+* — Web UI (ReScript) + Rust backend, MIT/Apache-2.0
-2. *Dioxus* — Pure Rust native UI, MIT/Apache-2.0
+1. *Tauri 2.0+* — Web UI (ReScript) + Rust backend, PMPL-1.0/PMPL-1.0
+2. *Dioxus* — Pure Rust native UI, PMPL-1.0/PMPL-1.0
 
 Both are FOSS with independent governance.
 
@@ -271,7 +274,7 @@ See link:CONTRIBUTING.adoc[CONTRIBUTING.adoc] for guidelines.
 
 == License
 
-MIT + Palimpsest-0.8
+PMPL-1.0 + Palimpsest-0.8
 
 ---
 
