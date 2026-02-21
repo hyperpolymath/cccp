@@ -281,3 +281,8 @@ PMPL-1.0 + Palimpsest-0.8
 _"We build systems that don't decay under pressure, communities that support experimentation without shame, and infrastructure that respects human autonomy."_
 
 — The Rhodium Standard
+
+
+== Architecture
+
+See link:TOPOLOGY.md[TOPOLOGY.md] for a visual architecture map and completion dashboard.
