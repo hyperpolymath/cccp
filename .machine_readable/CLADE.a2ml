@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: PMPL-1.0-or-later
+# Clade declaration — part of the gv-clade-index registry
+# See: https://github.com/hyperpolymath/gv-clade-index
+
+[identity]
+uuid = "7e3f6173-efac-54df-b675-e9c868b32ced"
+primary-forge = "github"
+primary-owner = "hyperpolymath"
+canonical-name = "cccp"
+prefixed-name = "ix-cccp"
+
+[clade]
+primary = "ix"
+secondary = []
+assigned = "2026-03-16"
+rationale = ""
+
+[forges]
+github = "hyperpolymath/cccp"
+gitlab = "hyperpolymath/cccp"
+bitbucket = "hyperpolymath/cccp"
+
+[lineage]
+type = "standalone"
+parent = "Cloud/container coordination"
+born = "2026-03-16"
