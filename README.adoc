@@ -1,8 +1,11 @@
-image:https://img.shields.io/badge/License-PMPL--1.0-blue.svg[License: PMPL-1.0,link="https://github.com/hyperpolymath/palimpsest-license"]
 // SPDX-License-Identifier: MPL-2.0
+// Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
+image:https://img.shields.io/badge/License-MPL_2.0--1.0-blue.svg[License: MPL-2.0,link="https://github.com/hyperpolymath/palimpsest-license"]
 // SPDX-FileCopyrightText: 2024-2025 hyperpolymath
 
 = CCCP: Campaign for Cooler Coding and Programming
+image:https://img.shields.io/badge/OpenSSF-Best_Practices-green?logo=openssourcesecurity[OpenSSF Best Practices,link="https://www.bestpractices.dev/en/projects/new?repo_url=https://github.com/hyperpolymath/cccp"]
+
 
 
 
@@ -183,8 +186,8 @@ NOTE: Python is permitted *only* for SaltStack configuration management (tempora
 
 No exceptions for Kotlin/Swift. Use Rust-first approach:
 
-1. *Tauri 2.0+* — Web UI (ReScript) + Rust backend, PMPL-1.0/PMPL-1.0
-2. *Dioxus* — Pure Rust native UI, PMPL-1.0/PMPL-1.0
+1. *Tauri 2.0+* — Web UI (ReScript) + Rust backend, MPL-2.0/MPL-2.0
+2. *Dioxus* — Pure Rust native UI, MPL-2.0/MPL-2.0
 
 Both are FOSS with independent governance.
 
@@ -264,7 +267,7 @@ Projects can display CCCP certification when they:
 
 * link:https://github.com/hyperpolymath/rhodium-standard-repositories[RSR Framework]
 * link:https://github.com/hyperpolymath/mustfile[Mustfile] — Type-safe deployment
-* link:https://github.com/hyperpolymath/palimpsest-license[Palimpsest License] — Multi-layered licensing
+* link:https://github.com/hyperpolymath/palimpsest-license[MPL-2.0] — Multi-layered licensing
 
 == Contributing
 
@@ -274,7 +277,7 @@ See link:CONTRIBUTING.adoc[CONTRIBUTING.adoc] for guidelines.
 
 == License
 
-PMPL-1.0 + Palimpsest-0.8
+MPL-2.0 + Palimpsest-0.8
 
 ---
 
