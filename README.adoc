@@ -244,6 +244,8 @@ This does not require every project to reject the web, cloud services, sync, acc
 
 CCCP therefore prefers projects that are web-first without being web-captive, local-first where practical, offline-capable where possible, and honest about remaining external dependencies.
 
+Keepable Software is *one* of CCCP's aspirations, not the whole of it. It sits alongside the language policy, technical excellence, distributed state, formal verification, community, and offline-first autonomy described elsewhere in this manifesto — and it does not replace any of them. It is a better way of doing things rather than a new gate: part of the guarantee lives in the code (what runs locally, what is exportable, what is forkable), and part lives in the licence (what the user is legally free to keep, run, inspect, and fork). Good languages and sound engineering remain the foundation; keepability is one of the properties that foundation should produce.
+
 In short:
 
 [quote]
