@@ -47,7 +47,7 @@ CCCP defines *principles and policies* for building software that is:
 | Warm community with graduated trust, cool-headed technical decisions
 
 | *Political*
-| Resistance to monopolistic tooling, anti-corporate lock-in, autonomy through offline-first design
+| Resistance to monopolistic tooling, anti-corporate lock-in, autonomy through offline-first and keepable-software design
 |===
 
 == Core Principles
@@ -65,6 +65,13 @@ Rejecting the npm/node ecosystem's fragility in favor of:
 * Work continues without constant connectivity
 * No cloud-dependent tooling
 * SaltRover for offline repository management
+* Local execution where practical
+* Offline-capable operation where possible
+* Exportable user data
+* No mandatory remote execution for the core experience unless clearly justified
+* Hosted services may enhance the project, but must not become hostage architecture
+
+This principle extends into the <<_keepable_software,Keepable Software>> section below: offline-first is one of the ways CCCP keeps the user's software, data, and work from disappearing behind someone else's switch.
 
 === 3. Distributed State Without Coordination
 
@@ -227,6 +234,26 @@ The *Citadel* is where RSR meets CCCP — the actual implementation pattern that
 * *Collective Defense* — Architecture makes mutual aid easier than isolation
 * *Safe Haven* — Emotionally and technically safe to experiment
 
+== Keepable Software
+
+CCCP treats user ownership as an architectural property, not merely a licence statement.
+
+Software should remain runnable, inspectable, forkable, exportable, and meaningfully ownable by the person who downloads it.
+
+This does not require every project to reject the web, cloud services, sync, accounts, or hosted infrastructure. It requires that those service layers do not become the only place where the user's software, data, or work can exist.
+
+CCCP therefore prefers projects that are web-first without being web-captive, local-first where practical, offline-capable where possible, and honest about remaining external dependencies.
+
+In short:
+
+[quote]
+____
+Download it. Keep it. Run it. Inspect it. Fork it.
+Do not make the user's own work disappear behind someone else's switch.
+____
+
+Keepable Software is both an integral CCCP principle and a named thematic strand that adopter projects can reference. See <<_cccp_thematic_strands,CCCP Thematic Strands>> for the strand catalogue.
+
 == Relationship to RSR
 
 [source]
@@ -245,6 +272,14 @@ Your Repository (Implementation)
     ├── Technically excellent
     └── Politically autonomous
 ----
+
+== CCCP Thematic Strands
+
+CCCP principles may be expressed through named thematic strands: focused design commitments that projects can adopt, test, and refine.
+
+Current strands include:
+
+* link:docs/strands/keepable-software.adoc[Keepable Software] — web-first, not web-captive; downloadable, inspectable, forkable, exportable, and meaningfully runnable by the user.
 
 == CCCP Certification
 
