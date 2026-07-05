@@ -1,0 +1,120 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
+= Keepable Software Strand
+:toc:
+:sectnums:
+
+== Status
+
+CCCP thematic strand: proposed / experimental
+
+== Summary
+
+The Keepable Software Strand names a CCCP design commitment:
+
+[quote]
+____
+Software should remain runnable, inspectable, forkable, exportable, and meaningfully ownable by the person who downloads it.
+____
+
+This strand covers projects that are web-accessible but not web-captive.
+
+A Keepable Software project may use a browser interface, optional sync, hosted builds, update services, or companion infrastructure. However, the user's ability to run a meaningful version of the software must not depend entirely on a continuing subscription, remote execution service, central vendor, proprietary runtime, or disappearing platform.
+
+== Core Intention
+
+Keepable Software is not anti-web.
+
+It is anti-hostageware.
+
+It is not anti-cloud.
+
+It is anti-confiscation-by-architecture.
+
+It is not nostalgia for desktop software.
+
+It is a modern design discipline for software that users can keep.
+
+== Design Commitments
+
+A project following this strand should aim to be:
+
+* local-first where practical;
+* offline-capable where possible;
+* downloadable as a meaningful artefact;
+* inspectable by technically competent users;
+* forkable under a recognised software licence;
+* exportable in relation to user data;
+* runnable without mandatory remote execution for the core experience, unless clearly justified;
+* portable across reasonable platform churn;
+* honest about which parts still depend on external services.
+
+== Web-First, Not Web-Captive
+
+A project may be web-first if the browser is the main user interface.
+
+A project becomes web-captive when the browser is only a window onto somebody else's disappearing machine.
+
+A CCCP-aligned web-first project should therefore prefer:
+
+* client-side execution where practical;
+* WebAssembly for real local engines where appropriate;
+* progressive web application patterns;
+* exportable user data;
+* documented build and recovery paths;
+* minimal dependency on platform-specific stores or accounts.
+
+== Adoption Criteria
+
+A project may claim alignment with the Keepable Software Strand when it can answer these questions clearly:
+
+. Can a user keep a meaningful copy?
+. Can a user run a meaningful version without the original service?
+. Can a user inspect the code or build process?
+. Can a user export their data?
+. Can the project survive a hosting provider, app store, API, or vendor disappearing?
+. Are remaining external dependencies named honestly?
+
+== Non-Goals
+
+This strand does not require every project to be fully offline.
+
+It does not require rejecting all servers, clouds, accounts, APIs, or hosted services.
+
+It does not require pretending that maintenance, security updates, and ecosystem dependencies are free.
+
+It only requires that the project does not deliberately make the user helpless when the service layer changes.
+
+== Reference Example: Nexia-List
+
+Nexia-List is a reference example of this strand.
+
+It is local-first in design and web-first in interface. Its primary target is the browser. Its Rust core is intended to compile to WebAssembly so the real engine can run client-side, with no server required for the essential experience.
+
+A desktop shell may exist as an optional external layer, but the browser remains the primary interface.
+
+The relevant CCCP claim is not that Nexia-List avoids the web. The claim is that it aims to be web-first without being web-captive.
+
+== Badge Text
+
+Suggested badge label:
+
+----
+CCCP: Keepable Software
+----
+
+Suggested badge meaning:
+
+----
+web-first, not web-captive
+----
+
+== Short Form
+
+Keepable Software means:
+
+[quote]
+____
+Download it. Keep it. Run it. Inspect it. Fork it.
+Do not make the user's own work disappear behind someone else's switch.
+____

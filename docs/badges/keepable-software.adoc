@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+// Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
+= Keepable Software Badge
+
+Projects that adopt the CCCP Keepable Software Strand may use:
+
+----
+CCCP: Keepable Software
+----
+
+Suggested Markdown badge:
+
+----
+[![CCCP: Keepable Software](https://img.shields.io/badge/CCCP-Keepable%20Software-c41e3a)](https://github.com/hyperpolymath/cccp/blob/main/docs/strands/keepable-software.adoc)
+----
+
+Suggested README wording:
+
+----
+This project follows the CCCP Keepable Software strand: web-first where useful, not web-captive by design.
+----

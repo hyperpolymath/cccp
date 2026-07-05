@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
+id: cccp.keepable-software
+name: Keepable Software Strand
+campaign: Campaign for Cooler Coding and Programming
+status: proposed
+summary: >
+  Software should remain runnable, inspectable, forkable, exportable,
+  and meaningfully ownable by the person who downloads it.
+
+principles:
+  - local-first where practical
+  - offline-capable where possible
+  - web-first is acceptable; web-captive is not
+  - meaningful downloadable artefact
+  - inspectable build path
+  - exportable user data
+  - no mandatory remote execution for core experience unless clearly justified
+  - honest declaration of remaining service dependencies
+
+preferred_phrases:
+  - web-first, not web-captive
+  - anti-hostageware
+  - anti-confiscation-by-architecture
+  - download it, keep it, run it, inspect it, fork it
+
+anti_patterns:
+  - hostageware
+  - confiscation-by-architecture
+  - service-only ownership
+  - opaque remote execution as the only runtime
+  - data export as an afterthought
+  - user work trapped behind subscription or platform continuity
+
+adoption_questions:
+  - Can a user keep a meaningful copy?
+  - Can a user run a meaningful version without the original service?
+  - Can a user inspect the code or build process?
+  - Can a user export their data?
+  - Can the project survive a hosting provider, app store, API, or vendor disappearing?
+  - Are remaining external dependencies named honestly?
+
+reference_examples:
+  - name: Nexia-List
+    role: reference adopter
+    claim: local-first browser software with a Rust/WASM client-side core
+    note: >
+      Nexia-List is cited only as an example of the strand, not as the origin
+      or sole definition of the principle.
