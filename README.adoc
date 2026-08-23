@@ -56,7 +56,7 @@ CCCP defines *principles and policies* for building software that is:
 
 Rejecting the npm/node ecosystem's fragility in favor of:
 
-* *ReScript* — OCaml soundness, compiles to JS
+* *AffineScript* — OCaml soundness, compiles to JS
 * *Rust* — Systems programming with memory safety
 * *Deno* — Secure-by-default runtime (when JS is unavoidable)
 
@@ -99,7 +99,7 @@ Using diverse languages resists monoculture:
 |===
 | Approved | Banned
 
-| ReScript, Rust, Deno, Gleam, OCaml, Ada, Julia, Guile Scheme, Nickel
+| AffineScript, Rust, Deno, Gleam, OCaml, Ada, Julia, Guile Scheme, Nickel
 | TypeScript, Node.js/npm, Go, Python (except SaltStack), Java/Kotlin, Swift
 |===
 
@@ -111,7 +111,7 @@ Using diverse languages resists monoculture:
 |===
 | Language | Use Case | Notes
 
-| *ReScript*
+| *AffineScript*
 | Primary application code
 | Compiles to JS, OCaml type safety
 
@@ -159,7 +159,7 @@ Using diverse languages resists monoculture:
 | Banned | Replacement | Rationale
 
 | *TypeScript*
-| ReScript
+| AffineScript
 | Unsound gradual typing
 
 | *Node.js*
@@ -175,7 +175,7 @@ Using diverse languages resists monoculture:
 | Error handling, generics
 
 | *Python* (general)
-| ReScript/Rust
+| AffineScript/Rust
 | No static types
 
 | *Java/Kotlin*
@@ -193,7 +193,7 @@ NOTE: Python is permitted *only* for SaltStack configuration management (tempora
 
 No exceptions for Kotlin/Swift. Use Rust-first approach:
 
-1. *Tauri 2.0+* — Web UI (ReScript) + Rust backend, MPL-2.0/MPL-2.0
+1. *Tauri 2.0+* — Web UI (AffineScript) + Rust backend, MPL-2.0/MPL-2.0
 2. *Dioxus* — Pure Rust native UI, MPL-2.0/MPL-2.0
 
 Both are FOSS with independent governance.
@@ -208,7 +208,7 @@ Both are FOSS with independent governance.
 | Guix (guix.scm)
 
 | *Fallback*
-| Nix (flake.nix)
+| Guix (flake.guix)
 
 | *JS deps*
 | Deno (deno.json imports)
@@ -219,7 +219,7 @@ Both are FOSS with independent governance.
 When encountering banned languages:
 
 1. *Immediate*: Block new code in banned languages
-2. *Short-term*: Convert TypeScript to ReScript
+2. *Short-term*: Convert TypeScript to AffineScript
 3. *Medium-term*: Replace Node/npm with Deno
 4. *Long-term*: Rewrite Go/Python in Rust
 
@@ -230,7 +230,7 @@ The *Citadel* is where RSR meets CCCP — the actual implementation pattern that
 === What Makes It a "Citadel"?
 
 * *Defensible Position* — Local dev environment can't be taken away by service outages
-* *Self-Sufficient* — Nix + Podman + SaltRover = complete autonomy
+* *Self-Sufficient* — Guix + Podman + SaltRover = complete autonomy
 * *Collective Defense* — Architecture makes mutual aid easier than isolation
 * *Safe Haven* — Emotionally and technically safe to experiment
 

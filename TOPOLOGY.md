@@ -34,7 +34,7 @@ Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
                         ┌─────────────────────────────────────────┐
                         │          APPROVED LANGUAGE STACK        │
                         │  ┌───────────┐  ┌───────────┐  ┌───────┐│
-                        │  │ ReScript  │  │   Rust    │  │ Deno  ││
+                        │  │ AffineScript  │  │   Rust    │  │ Deno  ││
                         │  └───────────┘  └───────────┘  └───────┘│
                         │  ┌───────────┐  ┌───────────┐  ┌───────┐│
                         │  │ Gleam/OTP │  │ SPARK/Ada │  │ Julia ││
@@ -44,7 +44,7 @@ Copyright (c) Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
                                             ▼
                         ┌─────────────────────────────────────────┐
                         │          INFRASTRUCTURE (OFFLINE)       │
-                        │    (Guix, Nix, SaltRover, Podman)       │
+                        │    (Guix, Guix, SaltRover, Podman)       │
                         └─────────────────────────────────────────┘
 
                         ┌─────────────────────────────────────────┐
@@ -62,12 +62,12 @@ COMPONENT                          STATUS              NOTES
 PHILOSOPHY & POLICY
   CCCP Core Principles              ██████████ 100%    4 temperatures defined
   Language Policy                   ██████████ 100%    Approved/Banned list stable
-  Migration Priority                ██████████ 100%    JS -> ReScript path active
+  Migration Priority                ██████████ 100%    JS -> AffineScript path active
   TPCF Model                        ██████████ 100%    Tri-Perimeter CF verified
 
 CERTIFICATION & TOOLS
   Certification Badge               ██████████ 100%    Ready for RSR use
-  Package Management Hierarchy      ██████████ 100%    Guix > Nix > Deno
+  Package Management Hierarchy      ██████████ 100%    Guix > Guix > Deno
   Mobile Rust-first Approach        ██████████ 100%    Tauri/Dioxus standard
 
 REPO INFRASTRUCTURE
