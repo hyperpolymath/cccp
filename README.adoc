@@ -310,7 +310,7 @@ Projects can display CCCP certification when they:
 
 CCCP is a living document. Contributions that align with its principles are welcome.
 
-See link:CONTRIBUTING.adoc[CONTRIBUTING.adoc] for guidelines.
+See link:.github/CONTRIBUTING.md[.github/CONTRIBUTING.md] for guidelines.
 
 == License
 
