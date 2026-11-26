@@ -36,17 +36,23 @@ The following files in `.machine_readable/` contain structured project metadata:
 | **Julia** | Batch scripts, data processing | Per RSR |
 | **OCaml** | AffineScript compiler | Language-specific |
 | **Ada** | Safety-critical systems | Where required |
+| **Zig** | Systems code replacing V-lang | Where Rust does not fit |
+| **just** | Task runner | Replaces Makefiles |
+| **Vue** | Web UI framework | Replaces React and Angular |
 
 ### BANNED - Do Not Use
+
+Canonical: metadatastician/standards `3-practice/LANGUAGE-POLICY.adoc`. Exemptions: see README.adoc "Exemptions".
 
 | Banned | Replacement |
 |--------|-------------|
 | TypeScript | AffineScript |
+| Ruby | Rust/Julia/shell |
+| V-lang | Rust/Zig |
+| Makefiles | just |
+| React, Angular | Vue |
 | ReScript | AffineScript |
-| Deno | Bun |
-| Node.js | Bun |
-| npm | Bun |
-| pnpm/yarn | Bun |
+| Node.js, yarn | Bun (then Deno, pnpm, npm as fallbacks) |
 | Go | Rust |
 | Python | Julia/Rust/AffineScript |
 | Java/Kotlin | Rust/Tauri/Dioxus |
@@ -56,7 +62,7 @@ The following files in `.machine_readable/` contain structured project metadata:
 
 ### Mobile Development
 
-**No exceptions for Kotlin/Swift** - use Rust-first approach:
+**No Kotlin/Swift in our own code** (except where README.adoc "Exemptions" apply) - use Rust-first approach:
 
 1. **Tauri 2.0+** - Web UI (AffineScript) + Rust backend, MIT/Apache-2.0
 2. **Dioxus** - Pure Rust native UI, MIT/Apache-2.0
@@ -65,17 +71,17 @@ Both are FOSS with independent governance (no Big Tech).
 
 ### Enforcement Rules
 
-1. **No new TypeScript files** - Convert existing TS to AffineScript
+1. **No new TypeScript files** - Convert existing TS to AffineScript (except where README.adoc "Exemptions" or the transitional glue carve-out in standards §1.2 apply)
 2. **Use `package.json` + `bun.lock` for JS runtime deps** - Bun is npm-compatible; a manifest is REQUIRED
 3. **`bun install --production` for production deps** - resolved from `package.json`, pinned via `bun.lock`
-4. **No Go code** - Use Rust instead
-5. **No Python anywhere** - Use Julia for data/batch, Rust for systems, AffineScript for apps
-6. **No Kotlin/Swift for mobile** - Use Tauri 2.0+ or Dioxus
+4. **No Go code** - Use Rust instead (except where README.adoc "Exemptions" apply)
+5. **No Python** - Use Julia for data/batch, Rust for systems, AffineScript for apps (except where README.adoc "Exemptions" apply)
+6. **No Kotlin/Swift for mobile** - Use Tauri 2.0+ or Dioxus (except where README.adoc "Exemptions" apply)
 
 ### Package Management
 
 - **Primary**: Guix (guix.scm)
-- **Fallback**: Guix (flake.guix)
+- **Escape hatch**: sealed container (`Containerfile` with real build steps). Nix is retired.
 - **JS deps**: Bun (`package.json` + `bun.lock`). Declare tooling as a devDependency and run `bunx --no-install --bun <tool>` — a bare `bunx <tool>` can fetch an unpinned package and may start Node via its shebang.
 
 ### Security Requirements
