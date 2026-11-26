@@ -27,7 +27,7 @@
                         ┌─────────────────────────────────────────┐
                         │          APPROVED LANGUAGE STACK        │
                         │  ┌───────────┐  ┌───────────┐  ┌───────┐│
-                        │  │ AffineScript  │  │   Rust    │  │ Deno  ││
+                        │  │ AffineScript  │  │   Rust    │  │  Bun  ││
                         │  └───────────┘  └───────────┘  └───────┘│
                         │  ┌───────────┐  ┌───────────┐  ┌───────┐│
                         │  │ Gleam/OTP │  │ SPARK/Ada │  │ Julia ││
@@ -60,7 +60,7 @@ PHILOSOPHY & POLICY
 
 CERTIFICATION & TOOLS
   Certification Badge               ██████████ 100%    Ready for RSR use
-  Package Management Hierarchy      ██████████ 100%    Guix > Guix > Deno
+  Package Management Hierarchy      ██████████ 100%    Guix > container; JS: Bun > Deno > pnpm > npm
   Mobile Rust-first Approach        ██████████ 100%    Tauri/Dioxus standard
 
 REPO INFRASTRUCTURE
