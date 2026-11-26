@@ -39,14 +39,17 @@ The following files in `.machine_readable/` contain structured project metadata:
 
 ### BANNED - Do Not Use
 
+Canonical: metadatastician/standards `3-practice/LANGUAGE-POLICY.adoc`. Exemptions: see README.adoc "Exemptions".
+
 | Banned | Replacement |
 |--------|-------------|
 | TypeScript | AffineScript |
+| Ruby | Rust/Julia/shell |
+| V-lang | Rust/Zig |
+| Makefiles | just |
+| React, Angular | Vue |
 | ReScript | AffineScript |
-| Deno | Bun |
-| Node.js | Bun |
-| npm | Bun |
-| pnpm/yarn | Bun |
+| Node.js, yarn | Bun (then Deno, pnpm, npm as fallbacks) |
 | Go | Rust |
 | Python | Julia/Rust/AffineScript |
 | Java/Kotlin | Rust/Tauri/Dioxus |
@@ -75,7 +78,7 @@ Both are FOSS with independent governance (no Big Tech).
 ### Package Management
 
 - **Primary**: Guix (guix.scm)
-- **Fallback**: Guix (flake.guix)
+- **Escape hatch**: sealed container (`Containerfile` with real build steps). Nix is retired.
 - **JS deps**: Bun (`package.json` + `bun.lock`). Declare tooling as a devDependency and run `bunx --no-install --bun <tool>` — a bare `bunx <tool>` can fetch an unpinned package and may start Node via its shebang.
 
 ### Security Requirements

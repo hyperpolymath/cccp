@@ -56,9 +56,9 @@ CCCP defines *principles and policies* for building software that is:
 
 Rejecting the npm/node ecosystem's fragility in favor of:
 
-* *AffineScript* — OCaml soundness, compiles to JS
+* *AffineScript* — affine types, compiles to typed-wasm or ESM
 * *Rust* — Systems programming with memory safety
-* *Deno* — Secure-by-default runtime (when JS is unavoidable)
+* *Bun* — the default runtime when JavaScript is unavoidable (then Deno, pnpm, npm)
 
 === 2. Offline-First as Autonomy
 
@@ -99,11 +99,17 @@ Using diverse languages resists monoculture:
 |===
 | Approved | Banned
 
-| AffineScript, Rust, Deno, Gleam, OCaml, Ada, Julia, Guile Scheme, Nickel
-| TypeScript, Node.js/npm, Go, Python (except SaltStack), Java/Kotlin, Swift
+| AffineScript, Rust, Zig, Idris2, Gleam, Elixir, OCaml, Haskell, Ada, Julia, Nickel, Guile Scheme, Vue
+| TypeScript, ReScript, Python, Ruby, Go, V-lang, Java/Kotlin, Swift, React, Angular, Flutter/Dart, Makefiles, Node.js, yarn
 |===
 
 == Language Policy
+
+NOTE: The canonical text is
+link:https://github.com/metadatastician/standards/blob/main/3-practice/LANGUAGE-POLICY.adoc[standards `3-practice/LANGUAGE-POLICY.adoc`],
+and CI gates cite it. This section is CCCP's summary of it. If the two
+disagree, the standards document wins, so fix this section rather than
+follow it. Last aligned 2026-11-26.
 
 === Allowed Languages
 
@@ -113,44 +119,64 @@ Using diverse languages resists monoculture:
 
 | *AffineScript*
 | Primary application code
-| Compiles to JS, OCaml type safety
+| Affine-typed; compiles to typed-wasm or ESM
 
 | *Rust*
-| Systems, performance, WASM
-| Preferred for CLI tools
+| Systems, performance, WASM, CLI tools
+| Creusot + Pearlite and Verus for proofs
 
-| *Deno*
-| Runtime & package management
-| Replaces Node/npm/Bun
+| *Zig*
+| FFI layers and C interop
+| With an Idris2 ABI
 
-| *Gleam*
+| *Idris2*, *Agda*, *Lean*, *Rocq*
+| APIs, engineering properties, theory
+| Per standards `PROOF-POLICY.adoc`
+
+| *Gleam*, *Elixir*
 | Backend services
 | BEAM or JS target
 
-| *OCaml*
-| Compilers, formal methods
-| Strong type system
+| *OCaml*, *Haskell*
+| Compilers and language tooling
+| Strong type systems
 
-| *Ada*
+| *Ada* / *SPARK*
 | Safety-critical systems
 | SPARK verification
 
 | *Julia*
-| Data processing, batch scripts
-| High-performance numerics
-
-| *Guile Scheme*
-| State/meta files
-| .machine_readable/6a2/STATE.a2ml, .machine_readable/6a2/META.a2ml, .machine_readable/6a2/ECOSYSTEM.a2ml
+| Data processing, batch scripts, numerics
+| Replaces Python for data work
 
 | *Nickel*
 | Configuration language
 | Type-safe configs
 
-| *Bash/POSIX Shell*
-| Scripts, automation
-| Keep minimal
+| *Guile Scheme* / *A2ML*
+| State and meta files
+| `.machine_readable/6a2/*.a2ml`
+
+| *Vue*
+| Web UI, where a framework is needed
+| Instead of React or Angular
+
+| *Bash/POSIX Shell*, *just*
+| Scripts, automation, task running
+| Keep minimal; `just` replaces Make
 |===
+
+=== JavaScript Runtimes
+
+JavaScript runs only where AffineScript cannot (protocol glue, runtime
+APIs). Reach for the first tool that can do the job:
+
+. *Bun*: the default. `package.json` plus `bun.lock`.
+. *Deno*: second. It reads the same `package.json`.
+. *pnpm*: third, where an upstream toolchain needs a `node_modules` layout.
+. *npm*: last resort only. It never keeps a tracked lock.
+
+Node.js and yarn are not used.
 
 === Banned Languages
 
@@ -162,39 +188,88 @@ Using diverse languages resists monoculture:
 | AffineScript
 | Unsound gradual typing
 
-| *Node.js*
-| Deno
-| Insecure by default
+| *ReScript*
+| AffineScript
+| Superseded by AffineScript
 
-| *npm/Bun/pnpm/yarn*
-| Deno
-| Supply chain risks
+| *Python*
+| Julia / Rust / AffineScript
+| No static types. No exceptions.
+
+| *Ruby*
+| Rust / Julia / shell
+| No static types
 
 | *Go*
 | Rust
 | Error handling, generics
 
-| *Python* (general)
-| AffineScript/Rust
-| No static types
+| *V-lang*
+| Rust / Zig
+| Unstable language and toolchain
 
 | *Java/Kotlin*
-| Rust/Tauri/Dioxus
+| Rust / Tauri / Dioxus
 | JVM overhead, platform lock-in
 
 | *Swift*
-| Tauri/Dioxus
+| Tauri / Dioxus
 | Platform lock-in
+
+| *React*, *React Native*, *Angular*
+| Vue (web), Tauri / Dioxus (mobile)
+| Big Tech governance
+
+| *Flutter/Dart*
+| Tauri / Dioxus
+| Platform lock-in
+
+| *Makefiles*
+| `just`
+| Fragile, implicit rules
+
+| *Node.js*, *yarn*
+| Bun
+| Insecure by default; supply-chain risk
 |===
 
-NOTE: Python is permitted *only* for SaltStack configuration management (temporary exception).
+The ban covers *toolchain declarations as well as source*, where that is
+possible. A `mise.toml`, `.tool-versions` or container image that installs a
+banned runtime is a violation, even if the repository tracks no source file
+in that language (owner ruling 2026-11-26).
+
+=== Exemptions
+
+A banned language may appear only in the cases below. Each exemption covers
+the minimum that its purpose needs, and nothing more.
+
+. *Mending bad languages.* Work built to connect to, or reach into, a bad
+  language so that it can be fixed. Examples: `proven`, `proven-servers`,
+  `boj-server-cartridges`, `typesnake`.
+. *Other people's code.* Forks and upstream projects, including
+  MetaManifold-WebUI and MetaManifold data, and the forked lists in
+  `stuff-of-awe`. Fix these upstream, not here.
+. *Awesome lists.* A `stuff-of-awe` list about a language holds examples in
+  that language. The list's own tooling follows this policy.
+. *Handover archives.* Old V-lang or ReScript work in `developer-ecosystem`,
+  kept only so others can take it on.
+. *Special-purpose and verification languages.* ATS2, Verus, TLA+,
+  miniKanren, ACL2 and similar, where the tool is the point, and the
+  owner's own languages.
+. *The PHP projects.* `php-aegis` and `sanctify-php` are the one standing
+  exception. They are not converted.
+. *Tiny oddities* such as TEA or REXX. Check each one is exceptional. They are
+  not a route to keep other code.
+
+Small add-ons are *not* exempt: Homebrew formulas, editor plugins and test
+fixtures in a banned language. Each gets replaced or removed.
 
 === Mobile Development
 
-No exceptions for Kotlin/Swift. Use Rust-first approach:
+No exceptions for Kotlin/Swift. Use a Rust-first approach:
 
-1. *Tauri 2.0+* — Web UI (AffineScript) + Rust backend, MPL-2.0/MPL-2.0
-2. *Dioxus* — Pure Rust native UI, MPL-2.0/MPL-2.0
+1. *Tauri 2.0+*: web UI (AffineScript) plus a Rust backend. MIT/Apache-2.0.
+2. *Dioxus*: pure Rust native UI. MIT/Apache-2.0.
 
 Both are FOSS with independent governance.
 
@@ -205,23 +280,28 @@ Both are FOSS with independent governance.
 | Priority | Tool
 
 | *Primary*
-| Guix (guix.scm)
+| GNU Guix (`guix.scm` / `manifest.scm`)
 
-| *Fallback*
-| Guix (flake.guix)
+| *Escape hatch*
+| Sealed container (a `Containerfile` with real build steps)
 
 | *JS deps*
-| Deno (deno.json imports)
+| Bun (`package.json` + `bun.lock`)
 |===
+
+Nix was retired estate-wide on 2026-06-01. It is not a fallback.
 
 == Migration Priority
 
 When encountering banned languages:
 
-1. *Immediate*: Block new code in banned languages
-2. *Short-term*: Convert TypeScript to AffineScript
-3. *Medium-term*: Replace Node/npm with Deno
-4. *Long-term*: Rewrite Go/Python in Rust
+1. *Immediate*: Block new code and toolchain entries in banned languages.
+2. *Short-term*: Strip banned runtimes from `mise.toml` and similar files.
+   Move React to Vue. Convert small TypeScript and ReScript to AffineScript.
+3. *Medium-term*: Port the large ReScript and TypeScript codebases to
+   AffineScript, one repository at a time.
+4. *Long-term*: Rewrite remaining Python, Ruby and Go in Rust or Julia.
+   Move mobile code to Tauri or Dioxus.
 
 == The Citadel of Code Creation
 
