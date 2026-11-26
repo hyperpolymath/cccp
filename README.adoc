@@ -180,7 +180,8 @@ APIs). Reach for the first tool that can do the job:
 . *npm*: last resort only. It never keeps a tracked lock.
 
 Node.js is never the runtime a project targets, and yarn is not used. If npm
-is the last resort, the Node.js it needs is a build-time tool only.
+is the last resort, the Node.js it needs is a build-time tool only (see
+"Exemptions").
 
 === Banned Languages
 
@@ -265,6 +266,12 @@ the minimum that its purpose needs, and nothing more.
   exception. They are not converted.
 . *Tiny oddities* such as TEA or REXX. Check each one is exceptional. They are
   not a route to keep other code.
+. *Transitional TypeScript glue.* TypeScript only where AffineScript cannot
+  reach (protocol glue, runtime APIs), and only until AffineScript can
+  (standards §1.2).
+. *Node.js for npm only.* When npm is the last resort, Node.js may be
+  installed as npm's build-time dependency. It is never the runtime a
+  project targets.
 
 Small add-ons are *not* exempt: Homebrew formulas, editor plugins and test
 fixtures in a banned language. Each gets replaced or removed.
