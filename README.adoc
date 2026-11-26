@@ -103,6 +103,9 @@ Using diverse languages resists monoculture:
 | TypeScript, ReScript, Python, Ruby, Go, V-lang, Java/Kotlin, Swift, React, Angular, Flutter/Dart, Makefiles, Node.js, yarn
 |===
 
+TypeScript is allowed only where AffineScript cannot reach (protocol glue,
+runtime APIs), and only as a transitional step (standards §1.2).
+
 == Language Policy
 
 NOTE: The canonical text is
@@ -176,7 +179,8 @@ APIs). Reach for the first tool that can do the job:
 . *pnpm*: third, where an upstream toolchain needs a `node_modules` layout.
 . *npm*: last resort only. It never keeps a tracked lock.
 
-Node.js and yarn are not used.
+Node.js is never the runtime a project targets, and yarn is not used. If npm
+is the last resort, the Node.js it needs is a build-time tool only.
 
 === Banned Languages
 
@@ -255,7 +259,8 @@ the minimum that its purpose needs, and nothing more.
   kept only so others can take it on.
 . *Special-purpose and verification languages.* ATS2, Verus, TLA+,
   miniKanren, ACL2 and similar, where the tool is the point, and the
-  owner's own languages.
+  owner's own languages. The ATS2 entry is pending the matching change
+  in the canonical standards text.
 . *The PHP projects.* `php-aegis` and `sanctify-php` are the one standing
   exception. They are not converted.
 . *Tiny oddities* such as TEA or REXX. Check each one is exceptional. They are
@@ -266,7 +271,8 @@ fixtures in a banned language. Each gets replaced or removed.
 
 === Mobile Development
 
-No exceptions for Kotlin/Swift. Use a Rust-first approach:
+No exceptions for Kotlin/Swift in our own code. Forks covered by
+"Exemptions" keep their upstream mobile code. Use a Rust-first approach:
 
 1. *Tauri 2.0+*: web UI (AffineScript) plus a Rust backend. MIT/Apache-2.0.
 2. *Dioxus*: pure Rust native UI. MIT/Apache-2.0.
