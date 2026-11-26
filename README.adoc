@@ -199,7 +199,7 @@ is the last resort, the Node.js it needs is a build-time tool only (see
 
 | *Python*
 | Julia / Rust / AffineScript
-| No static types. No exceptions.
+| No static types. The old SaltStack carve-out is gone. Only the cases in "Exemptions" apply.
 
 | *Ruby*
 | Rust / Julia / shell
@@ -278,8 +278,8 @@ fixtures in a banned language. Each gets replaced or removed.
 
 === Mobile Development
 
-No exceptions for Kotlin/Swift in our own code. Forks covered by
-"Exemptions" keep their upstream mobile code. Use a Rust-first approach:
+No Kotlin/Swift in our own code, except where "Exemptions" apply (for
+example forks, which keep their upstream mobile code, and mending work). Use a Rust-first approach:
 
 1. *Tauri 2.0+*: web UI (AffineScript) plus a Rust backend. MIT/Apache-2.0.
 2. *Dioxus*: pure Rust native UI. MIT/Apache-2.0.
@@ -308,8 +308,10 @@ Nix was retired estate-wide on 2026-06-01. It is not a fallback.
 
 When encountering banned languages:
 
-1. *Immediate*: Block new code and toolchain entries in banned languages.
-2. *Short-term*: Strip banned runtimes from `mise.toml` and similar files.
+1. *Immediate*: Block new code and toolchain entries in banned languages,
+   except where "Exemptions" apply.
+2. *Short-term*: Strip banned runtimes from `mise.toml` and similar files,
+   keeping only what an exemption allows (such as Node.js for npm).
    Move React to Vue. Convert small TypeScript and ReScript to AffineScript.
 3. *Medium-term*: Port the large ReScript and TypeScript codebases to
    AffineScript, one repository at a time.

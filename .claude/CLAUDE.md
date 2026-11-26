@@ -36,6 +36,9 @@ The following files in `.machine_readable/` contain structured project metadata:
 | **Julia** | Batch scripts, data processing | Per RSR |
 | **OCaml** | AffineScript compiler | Language-specific |
 | **Ada** | Safety-critical systems | Where required |
+| **Zig** | Systems code replacing V-lang | Where Rust does not fit |
+| **just** | Task runner | Replaces Makefiles |
+| **Vue** | Web UI framework | Replaces React and Angular |
 
 ### BANNED - Do Not Use
 
@@ -59,7 +62,7 @@ Canonical: metadatastician/standards `3-practice/LANGUAGE-POLICY.adoc`. Exemptio
 
 ### Mobile Development
 
-**No exceptions for Kotlin/Swift** - use Rust-first approach:
+**No Kotlin/Swift in our own code** (except where README.adoc "Exemptions" apply) - use Rust-first approach:
 
 1. **Tauri 2.0+** - Web UI (AffineScript) + Rust backend, MIT/Apache-2.0
 2. **Dioxus** - Pure Rust native UI, MIT/Apache-2.0
@@ -71,9 +74,9 @@ Both are FOSS with independent governance (no Big Tech).
 1. **No new TypeScript files** - Convert existing TS to AffineScript (except where README.adoc "Exemptions" or the transitional glue carve-out in standards §1.2 apply)
 2. **Use `package.json` + `bun.lock` for JS runtime deps** - Bun is npm-compatible; a manifest is REQUIRED
 3. **`bun install --production` for production deps** - resolved from `package.json`, pinned via `bun.lock`
-4. **No Go code** - Use Rust instead
+4. **No Go code** - Use Rust instead (except where README.adoc "Exemptions" apply)
 5. **No Python** - Use Julia for data/batch, Rust for systems, AffineScript for apps (except where README.adoc "Exemptions" apply)
-6. **No Kotlin/Swift for mobile** - Use Tauri 2.0+ or Dioxus
+6. **No Kotlin/Swift for mobile** - Use Tauri 2.0+ or Dioxus (except where README.adoc "Exemptions" apply)
 
 ### Package Management
 

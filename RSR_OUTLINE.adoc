@@ -167,9 +167,13 @@ project/
 
 === Prohibited
 
+The full list is the canonical policy (metadatastician/standards
+`3-practice/LANGUAGE-POLICY.adoc`) and README.adoc "Language Policy". The
+entries below are the common cases, not the whole list.
+
 * Python (use Julia, Rust or AffineScript; see README.adoc "Exemptions")
 * TypeScript (use AffineScript; transitional glue only, see README.adoc "Exemptions")
-* JavaScript beyond MCP glue and Bun APIs (use AffineScript)
+* JavaScript beyond MCP glue and Bun APIs (use AffineScript; see README.adoc "Exemptions")
 * Nix (`flake.nix`, `default.nix`; use Guix)
 * CUE (use Guile/Nickel)
 * `Dockerfile` (use `Containerfile`)
