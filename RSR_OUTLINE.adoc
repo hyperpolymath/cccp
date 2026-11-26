@@ -163,12 +163,14 @@ project/
 * `.well-known/security.txt`
 * `.well-known/ai.txt`
 * `.well-known/humans.txt`
-* `guix.scm` OR `flake.guix`
+* `guix.scm` (escape hatch: a sealed `Containerfile` with real build steps; Nix is retired)
 
 === Prohibited
 
-* Python outside `salt/` directory
-* TypeScript/JavaScript (use AffineScript)
+* Python (use Julia, Rust or AffineScript; see README.adoc "Exemptions")
+* TypeScript (use AffineScript; transitional glue only, see README.adoc "Exemptions")
+* JavaScript beyond MCP glue and Bun APIs (use AffineScript)
+* Nix (`flake.nix`, `default.nix`; use Guix)
 * CUE (use Guile/Nickel)
 * `Dockerfile` (use `Containerfile`)
 
